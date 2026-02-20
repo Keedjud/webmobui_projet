@@ -10,7 +10,8 @@ artistList.addEventListener('click', (event) => {
     const artistCover = event.target.closest('artist-cover')
     if (artistCover) {
         const artistId = artistCover.getAttribute('id')
+        const artistNom = artistCover.getAttribute('name')
         
-        afficherSectionMusiques(artistId)
+        afficherSectionMusiques(artistId, artistNom)
     }
 })
