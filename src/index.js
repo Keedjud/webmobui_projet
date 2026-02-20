@@ -1,3 +1,3 @@
-import { afficherSectionArtistes } from './section_artistes.js'
+import { afficherSectionArtistes } from './artistes.js'
 
 afficherSectionArtistes()
