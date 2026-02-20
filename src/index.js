@@ -1,1 +1,3 @@
-console.log('It works !')
+import { afficherSectionArtistes } from './section_artistes.js'
+
+afficherSectionArtistes()
