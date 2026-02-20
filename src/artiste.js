@@ -3,7 +3,7 @@ import { chargerListeMusiques } from './api.js'
 const container = document.querySelector('#list-section .list')
 const nomArtiste = document.querySelector('#list-section h4')
 
-function AfficherrNomArtiste(nom) {
+function AfficherNomArtiste(nom) {
     nomArtiste.innerText = `Artistes > ${nom}`
 }
 
@@ -20,7 +20,7 @@ function afficherMusiques(musiques) {
 }
 
 function afficherSectionMusiques(id = 1, nom = 'Alan Walker') {
-    AfficherrNomArtiste(nom)
+    AfficherNomArtiste(nom)
     chargerListeMusiques(id)
         .then(afficherMusiques)
 }
