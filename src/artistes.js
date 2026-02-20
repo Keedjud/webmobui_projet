@@ -3,11 +3,11 @@ import { chargerArtistes } from './api.js'
 const container = document.querySelector('.artist-list')
 
 function afficherUnArtiste(artiste) {
-    container.innerHTML += `
-    <a href="#${artiste.id}">
-          <img src="${artiste.image_url}" />
-          <div class="artist-list-item-title">${artiste.name}</div>
-    </a>`
+    const element = document.createElement('artist-cover')
+    element.setAttribute('id', artiste.id)
+    element.setAttribute('name', artiste.name)
+    element.setAttribute('image_url', artiste.image_url)
+    container.append(element)
 }
 
 function afficherArtistes(artistes) {

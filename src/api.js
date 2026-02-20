@@ -7,4 +7,8 @@ function chargerArtistes() {
     return fetchJson('https://webmob-ui-22-spotlified.herokuapp.com/api/artists')
 }
 
-export { chargerArtistes }
+function chargerListe(id) {
+    return fetchJson(`https://webmob-ui-22-spotlified.herokuapp.com/api/artists/${id}/songs`)
+}
+
+export { chargerArtistes, chargerListe }
