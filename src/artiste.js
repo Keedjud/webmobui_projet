@@ -3,8 +3,8 @@ import { chargerListeMusiques } from './api.js'
 const container = document.querySelector('#list-section .list')
 const nomArtiste = document.querySelector('#list-section h4')
 
-function AfficherrNomArtiste(id) {
-    nomArtiste.innerText = `Artistes > ${id}`
+function AfficherrNomArtiste(nom) {
+    nomArtiste.innerText = `Artistes > ${nom}`
 }
 
 function afficherUneMusique(musique) {
