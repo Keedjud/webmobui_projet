@@ -1,7 +1,7 @@
 import './elements/artistCover.js'
 import './elements/songItem.js'
 import { afficherSectionArtistes } from './artistes.js'
-import { afficherSectionMusiques } from './artiste.js'
+import { afficherSectionMusiques } from './musiques.js'
 
 const artistList = document.querySelector('.artist-list')
 
