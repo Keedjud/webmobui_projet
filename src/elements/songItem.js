@@ -1,24 +1,3 @@
-class ArtistCover extends HTMLElement {
-    static observedAttributes = ['id', 'name', 'image_url']
-
-    connectedCallback() {
-        this.render();
-    }
-
-    attributeChangedCallback() {
-        this.render();
-    }
-
-    render() {
-        this.innerHTML = `
-        <a href="#">
-            <img src="${this.getAttribute('image_url')}" />
-            <div class="artist-list-item-title">${this.getAttribute('name')}</div>
-        </a>`
-    }
-}
-customElements.define('artist-cover', ArtistCover)
-
 class SongItem extends HTMLElement {
     static observedAttributes = ['id', 'title']
 
@@ -32,7 +11,7 @@ class SongItem extends HTMLElement {
 
     render() {
         this.innerHTML = `
-        <a href="#">
+        <a href="#songs/${this.getAttribute('id')}">
           <div class="list-item-title">${this.getAttribute('title')}</div>
           <div class="list-item-actions">
             <button type="button" class="icon-button favorite-button ">
