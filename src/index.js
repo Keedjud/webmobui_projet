@@ -1,5 +1,7 @@
 import './elements/artistCover.js'
 import './elements/songItem.js'
+import './elements/homeSection.js'
+import { afficherHome } from './home.js'
 import { afficherSectionArtistes } from './artistes.js'
 import { afficherSectionMusiques } from './musiques.js'
 
@@ -10,6 +12,7 @@ afficherSectionArtistes()
 const hashSplite = window.location.hash.split('/')
 switch (hashSplite[0]) {
     case '':
+        console.log('home')
         afficherHome()
         break;
 
