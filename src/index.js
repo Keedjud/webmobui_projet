@@ -7,15 +7,15 @@ const artistList = document.querySelector('.artist-list')
 
 afficherSectionArtistes()
 
-const hashSplité = window.location.hash.split('/')
-switch (hashSplité[0]) {
+const hashSplite = window.location.hash.split('/')
+switch (hashSplite[0]) {
     case '':
         afficherHome()
         break;
 
     case '#artists':
-        if (hashSplité[1]) {
-            afficherSectionMusiques(hashSplité[1])
+        if (hashSplite[1]) {
+            afficherSectionMusiques(hashSplite[1])
         }
         else {
             afficherSectionArtistes()
