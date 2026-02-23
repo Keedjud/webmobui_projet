@@ -1,0 +1,28 @@
+import { chargerListeMusiques } from './api.js'
+
+const container = document.querySelector('#list-section .list')
+const nomArtiste = document.querySelector('#list-section h4')
+
+function AfficherNomArtiste(nom) {
+    nomArtiste.innerText = `Artistes > ${nom}`
+}
+
+function afficherUneMusique(musique) {
+    const element = document.createElement('song-item')
+    element.setAttribute('id', musique.id)
+    element.setAttribute('title', musique.title)
+    container.append(element)
+}  
+
+function afficherMusiques(musiques) {
+    container.innerHTML = ''
+    musiques.forEach(afficherUneMusique)
+}
+
+function afficherSectionMusiques(id = 1, nom = 'Alan Walker') {
+    AfficherNomArtiste(nom)
+    chargerListeMusiques(id)
+        .then(afficherMusiques)
+}
+
+export { afficherSectionMusiques }
