@@ -12,7 +12,6 @@ afficherSectionArtistes()
 const hashSplite = window.location.hash.split('/')
 switch (hashSplite[0]) {
     case '':
-        console.log('home')
         afficherHome()
         break;
 

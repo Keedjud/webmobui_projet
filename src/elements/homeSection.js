@@ -8,7 +8,6 @@ class HomeSection extends HTMLElement {
     }
 
     render() {
-        console.log('render home')
         this.id = 'home-section'
         this.innerHTML = `
         <h1 class="hero">Bienvenue</h1>
