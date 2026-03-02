@@ -1,9 +1,11 @@
+// Importation des éléments
 import './elements/artistCover.js'
 import './elements/songItem.js'
-import './elements/homeSection.js'
-import './elements/artistsSection.js'
-import { afficherSectionMusiques } from './musiques.js'
-import { chargerArtistes } from './api.js'
+
+// Importation des pages
+import './pages/homeSection.js'
+import './pages/artistsSection.js'
+import './pages/songsSection.js'
 
 const main = document.querySelector('main')
 
@@ -16,7 +18,7 @@ const router = () => {
 
         case '#artists':
             if (hashSplite[1]) {
-                afficherSectionMusiques(hashSplite[1])
+                main.innerHTML = `<songs-section artist_id="${hashSplite[1]}"/>`
             }
             else {
                 main.innerHTML = '<artists-section/>'
