@@ -1,44 +1,53 @@
 import './elements/artistCover.js'
 import './elements/songItem.js'
 import './elements/homeSection.js'
-import { afficherHome } from './home.js'
-import { afficherSectionArtistes } from './artistes.js'
+import './elements/artistsSection.js'
 import { afficherSectionMusiques } from './musiques.js'
+import { chargerArtistes } from './api.js'
 
-const artistList = document.querySelector('.artist-list')
+const main = document.querySelector('main')
 
-afficherSectionArtistes()
+const router = () => {
+    const hashSplite = window.location.hash.split('/')
+    switch (hashSplite[0]) {
+        case '': case '#home':
+            main.innerHTML = '<home-section/>'
+            break;
 
-const hashSplite = window.location.hash.split('/')
-switch (hashSplite[0]) {
-    case '':
-        afficherHome()
-        break;
+        case '#artists':
+            if (hashSplite[1]) {
+                afficherSectionMusiques(hashSplite[1])
+            }
+            else {
+                main.innerHTML = '<artists-section/>'
+            }
+            break;
 
-    case '#artists':
-        if (hashSplite[1]) {
-            afficherSectionMusiques(hashSplite[1])
-        }
-        else {
-            afficherSectionArtistes()
-        }
-        break;
+        case '#player':
 
-    case '#player':
+            break;
 
-        break;
+        case '#favorites':
 
-    case '#favorites':
-
-        break;
+            break;
+    }
 }
 
-artistList.addEventListener('click', (event) => {
-    const artistCover = event.target.closest('artist-cover')
-    if (artistCover) {
-        const artistId = artistCover.getAttribute('id')
-        const artistNom = artistCover.getAttribute('name')
+router()
 
-        afficherSectionMusiques(artistId, artistNom)
-    }
+window.addEventListener("hashchange", () => {
+    router()
 })
+
+
+
+// const artistList = document.querySelector('.artist-list')
+// artistList.addEventListener('click', (event) => {
+//     const artistCover = event.target.closest('artist-cover')
+//     if (artistCover) {
+//         const artistId = artistCover.getAttribute('id')
+//         const artistNom = artistCover.getAttribute('name')
+
+//         afficherSectionMusiques(artistId, artistNom)
+//     }
+// })
