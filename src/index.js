@@ -7,10 +7,10 @@ import './elements/searchBar.js'
 // Importation des pages
 import './pages/homeSection.js'
 import './pages/artistsSection.js'
-import './songsSection.js'
 import './pages/playerSection.js'
-import './pages/FavoritesSongsSection.js'
-import './pages/SearchSongsSection.js'
+import './pages/artistSongsSection.js'
+import './pages/searchSongsSection.js'
+import './pages/favoritesSongsSection.js'
 
 import './player.js'
 // import variables list et current
@@ -26,7 +26,7 @@ const router = () => {
 
         case '#artists':
             if (hashSplite[1]) {
-                main.innerHTML = `<songs-section artist_id="${hashSplite[1]}"/>`
+                main.innerHTML = `<artist-songs-section artist_id="${hashSplite[1]}"/>`
             }
             else {
                 main.innerHTML = '<artists-section/>'

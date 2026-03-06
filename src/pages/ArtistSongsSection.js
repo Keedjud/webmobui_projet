@@ -1,6 +1,6 @@
 import { getSongs } from "../api";
 
-class SongsSection extends HTMLElement {
+class ArtistSongsSection extends HTMLElement {
     static observedAttributes = ['artist_id']
 
     connectedCallback() {
@@ -35,4 +35,4 @@ class SongsSection extends HTMLElement {
         }
     }
 }
-customElements.define('songs-section', SongsSection)
+customElements.define('artist-songs-section', ArtistSongsSection)

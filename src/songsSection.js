@@ -1,4 +1,4 @@
-import { getSongs } from "./api";
+import { getSongs } from "../api";
 
 class SongsSection extends HTMLElement {
     static observedAttributes = ['artist_id']
@@ -28,10 +28,7 @@ class SongsSection extends HTMLElement {
 
         function afficherUneMusique(musique) {
             const element = document.createElement('song-item')
-            element.addEventListener('click', () => { 
-                console.log(`Test ${musique.title}`)
-                // Appeler la lecture via l'URL de la musique
-            })
+            element.addEventListener('click', () => { console.log("Test") })
             element.setAttribute('id', musique.id)
             element.setAttribute('title', musique.title)
             container.append(element)
