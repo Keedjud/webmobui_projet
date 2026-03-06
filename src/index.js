@@ -1,6 +1,7 @@
 // Importation des éléments
 import './elements/artistCover.js'
 import './elements/songItem.js'
+import './elements/spotFooter.js'
 
 // Importation des pages
 import './pages/homeSection.js'
