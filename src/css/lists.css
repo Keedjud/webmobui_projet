@@ -47,13 +47,15 @@
 /********************************************************************************/
 /* artists list */
 
-artist-list {
+.artist-list {
   /* définition en tant que container flex */
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
+}
 
+artist-cover {
   /* si on a un descendant direct qui est en hover, alors ceux qui ne sont pas en hover seront masqués */
   &:has(> :hover)> :not(:hover) img {
     opacity: .1;
