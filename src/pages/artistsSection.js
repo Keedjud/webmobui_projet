@@ -1,4 +1,4 @@
-import { chargerArtistes } from "../api";
+import { getArtists } from "../api";
 
 class ArtistsSection extends HTMLElement {
     connectedCallback() {
@@ -16,7 +16,7 @@ class ArtistsSection extends HTMLElement {
             <div class="artist-list"></div>`
 
         const container = this.querySelector('.artist-list')
-        chargerArtistes().then(afficherArtistes)
+        getArtists().then(afficherArtistes)
 
         function afficherArtistes(artistes) {
             artistes.forEach(afficherUnArtiste)

@@ -1,4 +1,4 @@
-import { chargerMusiques } from "../api";
+import { getSongs } from "../api";
 
 class SongsSection extends HTMLElement {
     static observedAttributes = ['artist_id']
@@ -19,7 +19,7 @@ class SongsSection extends HTMLElement {
 
         const container = this.querySelector('.list')
         const title = this.querySelector('h4')
-        chargerMusiques(this.getAttribute('artist_id')).then(afficherMusiques)
+        getSongs(this.getAttribute('artist_id')).then(afficherMusiques)
 
         function afficherMusiques(musiques) {
             musiques.forEach(afficherUneMusique)

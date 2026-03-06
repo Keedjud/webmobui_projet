@@ -3,12 +3,12 @@ function fetchJson(url) {
         .then((response) => response.json())
 }
 
-function chargerArtistes() {
+function getArtists() {
     return fetchJson('https://webmob-ui-22-spotlified.herokuapp.com/api/artists')
 }
 
-function chargerMusiques(id) {
+function getSongs(id) {
     return fetchJson(`https://webmob-ui-22-spotlified.herokuapp.com/api/artists/${id}/songs`)
 }
 
-export { chargerArtistes, chargerMusiques }
+export { getArtists, getSongs }
