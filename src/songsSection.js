@@ -1,16 +1,4 @@
-import { getSongs } from "../api";
-
 class SongsSection extends HTMLElement {
-    static observedAttributes = ['artist_id']
-
-    connectedCallback() {
-        this.render();
-    }
-
-    attributeChangedCallback() {
-        this.render();
-    }
-
     render() {
         this.id = 'list-section'
         this.innerHTML = `
@@ -19,11 +7,11 @@ class SongsSection extends HTMLElement {
 
         const container = this.querySelector('.list')
         const title = this.querySelector('h4')
-        getSongs(this.getAttribute('artist_id')).then(afficherMusiques)
+        this.getSonglist().then(afficherMusiques.bind(this))
 
         function afficherMusiques(musiques) {
             musiques.forEach(afficherUneMusique)
-            title.textContent = `Artistes > ${musiques[0].artist.name}`
+            title.textContent = this.getTitle()
         }
 
         function afficherUneMusique(musique) {
@@ -34,5 +22,14 @@ class SongsSection extends HTMLElement {
             container.append(element)
         }
     }
+
+    getTitle() {
+        return "fonction non définie"
+    }
+
+    getSonglist() {
+        return "fonction non définie"
+    }
 }
-customElements.define('songs-section', SongsSection)
+
+export default SongsSection

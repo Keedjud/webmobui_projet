@@ -1,7 +1,9 @@
 import { searchSongs } from "../api";
+import SongsSection from "../songsSection";
 
-class SearchSongsSection extends HTMLElement {
+class SearchSongsSection extends SongsSection {
     static observedAttributes = ['query']
+    query = encodeURIComponent(this.getAttribute('query'))
 
     connectedCallback() {
         this.render();
@@ -11,28 +13,15 @@ class SearchSongsSection extends HTMLElement {
         this.render();
     }
 
-    render() {
-        this.id = 'list-section'
-        this.innerHTML = `
-            <h4></h4>
-            <div class="list"></div>`
+    getTitle() {
+        return `Résultat de la recherche pour "${this.query}"`
+    }
 
-        const container = this.querySelector('.list')
-        const title = this.querySelector('h4')
-        const query = encodeURIComponent(this.getAttribute('query'))
-        searchSongs(query).then(afficherMusiques)
-
-        function afficherMusiques(musiques) {
-            musiques.forEach(afficherUneMusique)
-            title.textContent = `Résultat de la recherche pour "${query}"`
-        }
-
-        function afficherUneMusique(musique) {
-            const element = document.createElement('song-item')
-            element.setAttribute('id', musique.id)
-            element.setAttribute('title', musique.title)
-            container.append(element)
-        }
+    getSonglist() {
+        return searchSongs(this.query).then(musiques => {
+            this.musiques = musiques
+            return musiques
+        })
     }
 }
 customElements.define('search-songs-section', SearchSongsSection)

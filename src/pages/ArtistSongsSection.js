@@ -1,7 +1,10 @@
 import { getSongs } from "../api";
+import SongsSection from "../songsSection";
 
-class ArtistSongsSection extends HTMLElement {
+class ArtistSongsSection extends SongsSection {
     static observedAttributes = ['artist_id']
+    artist_id = this.getAttribute('artist_id')
+    musiques = []
 
     connectedCallback() {
         this.render();
@@ -11,28 +14,15 @@ class ArtistSongsSection extends HTMLElement {
         this.render();
     }
 
-    render() {
-        this.id = 'list-section'
-        this.innerHTML = `
-            <h4></h4>
-            <div class="list"></div>`
+    getTitle() {
+        return `Artistes > ${this.musiques[0].artist.name}`
+    }
 
-        const container = this.querySelector('.list')
-        const title = this.querySelector('h4')
-        getSongs(this.getAttribute('artist_id')).then(afficherMusiques)
-
-        function afficherMusiques(musiques) {
-            musiques.forEach(afficherUneMusique)
-            title.textContent = `Artistes > ${musiques[0].artist.name}`
-        }
-
-        function afficherUneMusique(musique) {
-            const element = document.createElement('song-item')
-            element.addEventListener('click', () => { console.log("Test") })
-            element.setAttribute('id', musique.id)
-            element.setAttribute('title', musique.title)
-            container.append(element)
-        }
+    getSonglist() {
+        return getSongs(this.artist_id).then(musiques => {
+            this.musiques = musiques
+            return musiques
+        })
     }
 }
 customElements.define('artist-songs-section', ArtistSongsSection)
