@@ -11,4 +11,8 @@ function getSongs(id) {
     return fetchJson(`https://webmob-ui-22-spotlified.herokuapp.com/api/artists/${id}/songs`)
 }
 
-export { getArtists, getSongs }
+function searchSongs(query) {
+    return fetchJson(`https://webmob-ui-22-spotlified.herokuapp.com/api/songs/search/${query}`)
+}
+
+export { getArtists, getSongs, searchSongs }

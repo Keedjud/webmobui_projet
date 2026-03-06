@@ -2,11 +2,18 @@
 import './elements/artistCover.js'
 import './elements/songItem.js'
 import './elements/spotFooter.js'
+import './elements/searchBar.js'
 
 // Importation des pages
 import './pages/homeSection.js'
 import './pages/artistsSection.js'
-import './pages/songsSection.js'
+import './songsSection.js'
+import './pages/playerSection.js'
+import './pages/FavoritesSongsSection.js'
+import './pages/SearchSongsSection.js'
+
+import './player.js'
+// import variables list et current
 
 const main = document.querySelector('main')
 
@@ -23,6 +30,12 @@ const router = () => {
             }
             else {
                 main.innerHTML = '<artists-section/>'
+            }
+            break;
+        
+        case '#search':
+            if (hashSplite[1]) {
+                main.innerHTML = `<search-songs-section query="${hashSplite[1]}"/>`
             }
             break;
 
